@@ -27,7 +27,7 @@ internal sealed class Entry : BaseUnityPlugin
         
     private static void MenuPageMain_StartHook(Action<MenuPageMain> orig, MenuPageMain self)
     {
-        var buttonParent = self.transform.Find("Buttons");
+        var buttonParent = self.transform.Find("LeftTransform/Buttons");
         if(!buttonParent.GetComponent<VerticalLayoutGroup>()){
             var verticalLayoutGroup = buttonParent.AddComponent<VerticalLayoutGroup>();
             verticalLayoutGroup.childControlWidth = false;

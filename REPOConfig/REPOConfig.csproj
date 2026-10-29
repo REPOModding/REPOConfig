@@ -379,4 +379,10 @@
         <HintPath>$(GameAssemblyDir)\websocket-sharp.dll</HintPath>
       </Reference>
     </ItemGroup>
+
+    <Target Name="ClearReferenceCopyLocalPaths" AfterTargets="ResolveAssemblyReferences">
+      <ItemGroup>
+        <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" />
+      </ItemGroup>
+    </Target>
 </Project>
