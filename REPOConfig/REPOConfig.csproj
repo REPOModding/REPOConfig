@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<GameBaseDir>E:\SteamLibrary\steamapps\common\REPO</GameBaseDir>
 		<GameAssemblyDir>$(GameBaseDir)\REPO_Data\Managed</GameAssemblyDir>
-		<AssemblyVersion>1.2.6</AssemblyVersion>
-		<Version>1.1.8</Version>
+		<AssemblyVersion>1.2.7</AssemblyVersion>
+		<Version>1.1.9</Version>
 	</PropertyGroup>
 	
     <PropertyGroup>
@@ -57,9 +57,6 @@
       <Reference Include="MonoMod.Utils">
         <HintPath>$(GameBaseDir)\BepInEx\core\MonoMod.Utils.dll</HintPath>
       </Reference>
-      <Reference Include="mscorlib">
-        <HintPath>$(GameAssemblyDir)\mscorlib.dll</HintPath>
-      </Reference>
       <Reference Include="Newtonsoft.Json">
         <HintPath>$(GameAssemblyDir)\Newtonsoft.Json.dll</HintPath>
       </Reference>
@@ -86,45 +83,6 @@
       </Reference>
       <Reference Include="PhotonVoice.PUN">
         <HintPath>$(GameAssemblyDir)\PhotonVoice.PUN.dll</HintPath>
-      </Reference>
-      <Reference Include="System">
-        <HintPath>$(GameAssemblyDir)\System.dll</HintPath>
-      </Reference>
-      <Reference Include="System.ComponentModel.Composition">
-        <HintPath>$(GameAssemblyDir)\System.ComponentModel.Composition.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Core">
-        <HintPath>$(GameAssemblyDir)\System.Core.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Data">
-        <HintPath>$(GameAssemblyDir)\System.Data.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Drawing">
-        <HintPath>$(GameAssemblyDir)\System.Drawing.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO.Compression">
-        <HintPath>$(GameAssemblyDir)\System.IO.Compression.dll</HintPath>
-      </Reference>
-      <Reference Include="System.IO.Compression.FileSystem">
-        <HintPath>$(GameAssemblyDir)\System.IO.Compression.FileSystem.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Net.Http">
-        <HintPath>$(GameAssemblyDir)\System.Net.Http.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Numerics">
-        <HintPath>$(GameAssemblyDir)\System.Numerics.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Runtime.Serialization">
-        <HintPath>$(GameAssemblyDir)\System.Runtime.Serialization.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Transactions">
-        <HintPath>$(GameAssemblyDir)\System.Transactions.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Xml">
-        <HintPath>$(GameAssemblyDir)\System.Xml.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Xml.Linq">
-        <HintPath>$(GameAssemblyDir)\System.Xml.Linq.dll</HintPath>
       </Reference>
       <Reference Include="Unity.AI.Navigation">
         <HintPath>$(GameAssemblyDir)\Unity.AI.Navigation.dll</HintPath>
