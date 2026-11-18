@@ -6,6 +6,7 @@ using BepInEx.Bootstrap;
 using BepInEx.Configuration;
 using MenuLib;
 using MenuLib.MonoBehaviors;
+using REPOConfig.Extensions;
 using REPOConfig.Strategies;
 using TMPro;
 using UnityEngine;
@@ -307,9 +308,7 @@ internal sealed class ConfigMenu
             
             foreach (var configEntryBase in plugin.Instance.Config.Select(configEntry => configEntry.Value))
             {
-                var tags = configEntryBase.Description?.Tags;
-                
-                if (tags != null && (tags.Contains("HideREPOConfig") || tags.Contains("HideFromREPOConfig")))
+                if (configEntryBase.HasTag(ConfigEntryBaseExtensions.HIDE_TAG) || configEntryBase.HasTag(ConfigEntryBaseExtensions.LEGACY_HIDE_TAG))
                     continue;
                 
                 configEntries.Add(configEntryBase);

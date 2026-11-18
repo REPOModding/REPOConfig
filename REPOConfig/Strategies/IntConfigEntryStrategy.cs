@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using BepInEx.Configuration;
 using MenuLib;
+using REPOConfig.Extensions;
 using TMPro;
 using UnityEngine;
 
@@ -45,6 +47,9 @@ internal class IntConfigEntryStrategy : ConfigEntryStrategy<int>
             ConfigEntryStore.ChangedEntryValues[entry] = i;
         }, scrollView, defaultValue: entry.Value, min: min, max: max);
         repoSlider.descriptionTMP.fontStyle = repoSlider.labelTMP.fontStyle = FontStyles.Normal;
+
+        if (entry.TryGetTagValue(ConfigEntryBaseExtensions.STEP_TAG, out var stepValue) && int.TryParse(stepValue, NumberStyles.Integer, CultureInfo.InvariantCulture, out var step) && step > 0)
+            repoSlider.precisionDecimal = step;
 
         /*if (description.Length <= 43)
             return repoSlider.rectTransform;*/

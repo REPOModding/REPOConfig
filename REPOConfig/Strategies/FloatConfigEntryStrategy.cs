@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using BepInEx.Configuration;
 using MenuLib;
 using REPOConfig.Extensions;
@@ -42,8 +43,16 @@ internal class FloatConfigEntryStrategy : ConfigEntryStrategy<float>
                 min = -(max = absoluteDefaultValue * 2);
         }
 
+        float step = 0;
+        var hasStep = entry.TryGetTagValue(ConfigEntryBaseExtensions.STEP_TAG, out var stepValue) && float.TryParse(stepValue, NumberStyles.Float, CultureInfo.InvariantCulture, out step) && step > 0;
+
+        if (hasStep)
+            precision = Mathf.Max(precision, step.GetDecimalPlaces());
+
         var repoSlider = MenuAPI.CreateREPOSlider(modName, string.Empty, f => //description
         {
+            f = (float)Math.Round(f, precision);
+
             if (ConfigEntryStore.OriginalEntryValues.TryGetValue(entry, out var originalValue) && Math.Abs(f - (float)originalValue) < float.Epsilon)
             {
                 ConfigEntryStore.ChangedEntryValues.Remove(entry);
@@ -53,6 +62,9 @@ internal class FloatConfigEntryStrategy : ConfigEntryStrategy<float>
             ConfigEntryStore.ChangedEntryValues[entry] = f;
         }, scrollView, defaultValue: entry.Value, min: min, max: max, precision: precision);
         repoSlider.descriptionTMP.fontStyle = repoSlider.labelTMP.fontStyle = FontStyles.Normal;
+
+        if (hasStep)
+            repoSlider.precisionDecimal = step;
 
         /*if (description.Length <= 43)
             return repoSlider.rectTransform;*/

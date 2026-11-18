@@ -6,6 +6,7 @@ using BepInEx.Logging;
 using HarmonyLib;
 using MenuLib;
 using MonoMod.RuntimeDetour;
+using REPOConfig.Extensions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -70,7 +71,7 @@ internal sealed class Entry : BaseUnityPlugin
         };*/
             
         /*descriptionScrollSpeed = Config.Bind("General", "Description Scroll Speed", .15f, new ConfigDescription("How fast descriptions scroll. (Seconds per character)", new AcceptableValueRange<float>(0.1f, 2f)));*/
-        showInGame = Config.Bind("General", "Show In Game", true, new ConfigDescription(string.Empty, null, "HideFromREPOConfig"));
+        showInGame = Config.Bind("General", "Show In Game", true, new ConfigDescription(string.Empty, null, ConfigEntryBaseExtensions.HIDE_TAG));
 
         if (!showInGame.Value)
             return;
