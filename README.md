@@ -34,6 +34,13 @@ intEntry = Config.Bind("General", "Int Entry", 2, new ConfigDescription("", new 
 gamemodeEntry = Config.Bind("General", "Gamemode", "Survival", new ConfigDescription("", new AcceptableValueList<string>("Creative", "Survival", "Adventure Mode")));
 ```
 
+**Setting A Step Value** *(Case-Sensitive)*
+1. Create a `ConfigEntry<int>` or `ConfigEntry<float>`
+2. Bind it with a tag `REPOConfigStep=<value>` (use `.` for decimals):
+```
+floatEntry = Config.Bind("General", "Float Entry", 2f, new ConfigDescription("", new AcceptableValueRange<float>(0f, 10f), "REPOConfigStep=0.5"));
+```
+
 **Hiding A Setting** *(Case-Sensitive)*
 1. Create a `ConfigEntry`
 2. Bind it with a tag `HideFromREPOConfig`:
